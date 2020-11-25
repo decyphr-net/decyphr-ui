@@ -1,5 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
+import 'react-bulma-components/dist/react-bulma-components.min.css';
+import { Button } from 'react-bulma-components';
 
 import Title from '@/components/Title';
 
