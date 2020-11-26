@@ -157,11 +157,15 @@ Hero
   }
 }
 
+.hero-p {
+  margin-bottom: 2.5%;
+}
+
 /*
 Button
 */
 .btn {
-  margin-top: 20px;
+  margin-top: 2.5%;
   border-radius: 50px;
   border: none;
   padding: 10px 30px;
@@ -273,4 +277,28 @@ Footer
 
 #footer a {
   color: #ffffff !important;
+}
+
+.interactive-bg {
+  height: 100vh;
+  padding: 0px;
+  overflow-y: hidden;
+}
+
+@media (max-width: 769px) {
+  .interactive-bg {
+    display: none;
+  }
+}
+
+.panel-img {
+  height: 100%;
+}
+
+.is-vcentered {
+  overflow-y: hidden;
+}
+
+.columns {
+  margin: 0;
 }

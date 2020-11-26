@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { useIntl } from 'react-intl';
 
 const Home: React.FC = () => {
@@ -53,13 +55,13 @@ const Home: React.FC = () => {
             <h1 className="has-text-green is-size-1 is-size-3-mobile">
               {f(`title`)}
             </h1>
-            <p className="has-text-green">{f(`heroParagraph`)}</p>
-            <button
-              type="submit"
-              className="btn has-mustard-bg is-size-7 a-menu"
+            <p className="has-text-green hero-p">{f(`heroParagraph`)}</p>
+            <Link
+              href="/accounts/login"
+              locale={locale}
             >
-              {f(`callToAction`)}
-            </button>
+              <a href="/" className="btn has-text-green has-mustard-bg is-size-7 a-menu">{f(`callToAction`)}</a>
+            </Link>
           </div>
         </div>
       </section>
