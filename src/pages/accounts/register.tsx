@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useIntl } from 'react-intl';
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
   const { formatMessage } = useIntl();
   const f = (id) => formatMessage({ id });
   const router = useRouter();
@@ -15,7 +15,7 @@ const Login: React.FC = () => {
         <section className="section">
           <div className="has-centered-text">
             <h1>Decyphr</h1>
-            <p>Login to Decyphr</p>
+            <p>Sign up to Decyphr</p>
           </div>
 
           <form>
@@ -33,9 +33,7 @@ const Login: React.FC = () => {
             <div className="field">
 
               <div className="control has-icons-right">
-                <label className="label" htmlFor="password">
-                  Password
-                </label>
+                <label className="label" htmlFor="password">Password</label>
                 <input className="input" id="password" type="password" />
                 <span className="icon is-small is-right">
                   <i className="fa fa-key" />
@@ -43,11 +41,13 @@ const Login: React.FC = () => {
               </div>
             </div>
             <div className="has-text-centered">
-              <a href="/" className="button is-vcentered is-primary">Login</a>
+              <a href="/" className="button is-vcentered is-primary">
+                Register
+              </a>
             </div>
             <div className="has-text-centered">
-              <Link href="/accounts/register" locale={locale}>
-                <a>Don't have an account? Sign up now!</a>
+              <Link href="/accounts/login" locale={locale}>
+                <a>Already have an account? Sign in now</a>
               </Link>
             </div>
           </form>
@@ -64,4 +64,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Register;
