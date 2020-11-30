@@ -1,0 +1,74 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import Button from '.';
+
+<Meta title="Button" component={Button} />
+
+# Buttons
+
+Buttons have the following properties:
+
+```javascript
+text; // string
+color; // string
+variant; // string (optional)
+modifier; // string (optional)
+```
+
+Both the `text` and `color` properties are required, while the `variant` and
+`modifier` values are optional.
+
+- `text` is the text that will be displayed on the button
+- `color` is the color to be used. Note, this is the color based on the variables configured (`primary`, `secondary`) rather than actual color names
+- `variant` provides access to other possible variations of the button. For example, `rounded`
+- `modifier` modifies the buttons in some way. For example, adding drop shadow (`shadow`)
+
+All other HTML button properties are also available.
+
+In order to use the Button component, import it using the following:
+
+```javascript
+import Button from 'components/elements/Button';
+```
+
+## Simple square buttons
+
+Using the standard buttons is straightforward. Simply import using the above import statement and use like the following:
+
+```javascript
+<Button text="Submit" color="primary" />
+```
+
+<Story name="Square Button">
+  <Button text="Square Primary" color="primary" />
+  <Button text="Square Secondary" color="secondary" />
+</Story>
+
+## Rounded Buttons
+
+Rounded buttons are a variation of the normal
+
+<Story name="Round Button">
+  <Button text="Round Primary" color="primary" variant="rounded" />
+  <Button text="Round Secondary" color="secondary" variant="rounded" />
+</Story>
+
+## Buttons with Drop Shadows
+
+<Story name="With Shadows">
+  <Button text="Shadowed Primary" color="primary" modifier="shadow" />
+  <Button text="Shadowed Secondary" color="secondary" modifier="shadow" />
+  <br />
+  <br />
+  <Button
+    text="Shadowed Primary"
+    color="primary"
+    variant="rounded"
+    modifier="shadow"
+  />
+  <Button
+    text="Shadowed Secondary"
+    color="secondary"
+    variant="rounded"
+    modifier="shadow"
+  />
+</Story>

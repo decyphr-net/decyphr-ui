@@ -4,6 +4,7 @@ Colours
 #FDBB34 - Mustard
 #1E4132 - Green
 */
+@import 'bulma/bulma';
 
 .has-text-green {
   color: #1e4132 !important;
@@ -159,26 +160,6 @@ Hero
 
 .hero-p {
   margin-bottom: 2.5%;
-}
-
-/*
-Button
-*/
-.btn {
-  margin-top: 2.5%;
-  border-radius: 50px;
-  border: none;
-  padding: 10px 30px;
-  -webkit-box-shadow: 0px 0px 15px 0px rgba(253, 186, 52, 1);
-  -moz-box-shadow: 0px 0px 15px 0px rgba(253, 186, 52, 1);
-  box-shadow: 0px 0px 15px 0px rgba(253, 186, 52, 1);
-  transition: opacity 1s ease;
-  opacity: 1;
-  cursor: pointer;
-}
-
-.btn:hover {
-  opacity: 0.8;
 }
 
 /*
