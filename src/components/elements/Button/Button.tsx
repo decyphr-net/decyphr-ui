@@ -17,6 +17,7 @@ const Button = ({text, color, variant, modifier, as, children, ...rest}: Props) 
     return (
       <a
         className={`button ${styles[color]} ${styles[variant]} ${styles[modifier]}`}
+        data-testid="link"
         {...rest}
       >
         {text}
@@ -26,6 +27,7 @@ const Button = ({text, color, variant, modifier, as, children, ...rest}: Props) 
     return (
       <button
         className={`button ${styles[color]} ${styles[variant]} ${styles[modifier]}`}
+        data-testid="button"
         {...rest}
       >
         {text}
