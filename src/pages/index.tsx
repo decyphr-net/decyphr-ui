@@ -3,6 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useIntl } from 'react-intl';
+import Button from '../components/elements/Button';
 
 const Home: React.FC = () => {
   const { formatMessage } = useIntl();
@@ -60,7 +61,7 @@ const Home: React.FC = () => {
               href="/accounts/login"
               locale={locale}
             >
-              <a href="/" className="btn has-text-green has-mustard-bg is-size-7 a-menu">{f(`callToAction`)}</a>
+              <Button text={f(`callToAction`)} color="primary" variant="rounded" modifier="shadow" as="a"  />
             </Link>
           </div>
         </div>

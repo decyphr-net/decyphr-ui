@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useIntl } from 'react-intl';
+import Button from '../../components/elements/Button';
 
 const Register: React.FC = () => {
   const { formatMessage } = useIntl();
@@ -10,7 +11,7 @@ const Register: React.FC = () => {
   const { locale, locales, defaultLocale } = router;
 
   return (
-    <div className="columns is-vcentered has-mustard-bg">
+    <div className="columns is-vcentered has-white-bg">
       <div className="login column is-4">
         <section className="section">
           <div className="has-centered-text">
@@ -31,7 +32,6 @@ const Register: React.FC = () => {
             </div>
 
             <div className="field">
-
               <div className="control has-icons-right">
                 <label className="label" htmlFor="password">Password</label>
                 <input className="input" id="password" type="password" />
@@ -41,9 +41,7 @@ const Register: React.FC = () => {
               </div>
             </div>
             <div className="has-text-centered">
-              <a href="/" className="button is-vcentered is-primary">
-                Register
-              </a>
+              <Button text="Register" color="primary" as="a" />
             </div>
             <div className="has-text-centered">
               <Link href="/accounts/login" locale={locale}>
