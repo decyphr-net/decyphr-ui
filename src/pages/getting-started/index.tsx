@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useIntl } from 'react-intl';
 import Button from '../../components/elements/Button';
+import Input from '../../components/elements/Input';
 
 const GettingStarted: React.FC = () => {
   const { formatMessage } = useIntl();
@@ -37,13 +38,21 @@ const GettingStarted: React.FC = () => {
 
               <form>
                 <div className="field">
+                  <label className="label">Native Language</label>
                   <div className="control">
-                    <input className="input is-medium" type="text" placeholder="Native Language" />
+                    <Input as="select">
+                      <option>English</option>
+                      <option>Portuguese</option>
+                    </Input>
                   </div>
                 </div>
                 <div className="field">
+                <label className="label">New Language</label>
                   <div className="control">
-                    <input className="input is-medium" type="text" placeholder="New Language" />
+                    <Input as="select">
+                      <option>English</option>
+                      <option>Portuguese</option>
+                    </Input>
                   </div>
                 </div>
                 <Button text="Next" color="primary" />

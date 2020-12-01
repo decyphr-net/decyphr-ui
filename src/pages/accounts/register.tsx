@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useIntl } from 'react-intl';
 import Button from '../../components/elements/Button';
+import Input from '../../components/elements/Input';
 
 const Register: React.FC = () => {
   const { formatMessage } = useIntl();
@@ -21,23 +22,16 @@ const Register: React.FC = () => {
 
           <form>
             <div className="field">
-
-              <div className="control has-icons-right">
-                <label className="label" htmlFor="username">Username</label>
-                <input className="input" id="username" type="text" />
-                <span className="icon is-small is-right">
-                  <i className="fa fa-user" />
-                </span>
+              <label className="label" htmlFor="username">Username</label>
+              <div className="control">
+                <Input id="username" type="text" />
               </div>
             </div>
 
             <div className="field">
-              <div className="control has-icons-right">
-                <label className="label" htmlFor="password">Password</label>
-                <input className="input" id="password" type="password" />
-                <span className="icon is-small is-right">
-                  <i className="fa fa-key" />
-                </span>
+              <label className="label" htmlFor="password">Password</label>
+              <div className="control">
+                <Input id="password" type="password" />
               </div>
             </div>
             <div className="has-text-centered">
