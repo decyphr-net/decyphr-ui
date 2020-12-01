@@ -1,8 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`renders a primary colored button correctly 1`] = `
 <button
   className="button primary undefined undefined"
+  data-testid="button"
+>
+  Some Text
+</button>
+`;
+
+exports[`renders a rounded primary colored button correctly 1`] = `
+<button
+  className="button primary rounded undefined"
+  data-testid="button"
+>
+  Some Text
+</button>
+`;
+
+exports[`renders a rounded primary colored button with a shadow correctly 1`] = `
+<button
+  className="button primary rounded shadow"
+  data-testid="button"
 >
   Some Text
 </button>
