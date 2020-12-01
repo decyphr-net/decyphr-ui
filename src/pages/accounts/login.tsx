@@ -44,7 +44,12 @@ const Login: React.FC = () => {
               </div>
             </div>
             <div className="has-text-centered">
-              <Button text="Login" color="primary" as="a" />
+              <Link
+                href="/getting-started/"
+                locale={locale}
+              >
+                <Button text="Login" color="primary" as="a" />
+              </Link>
             </div>
             <div className="has-text-centered">
               <Link href="/accounts/register" locale={locale}>

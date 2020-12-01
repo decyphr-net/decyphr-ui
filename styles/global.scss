@@ -5,6 +5,7 @@ Colours
 #1E4132 - Green
 */
 @import 'bulma/bulma';
+@import 'variables';
 
 .has-text-green {
   color: #1e4132 !important;
@@ -279,4 +280,88 @@ Footer
 
 .columns {
   margin: 0;
+}
+
+:root {
+  --background: rgb(247, 247, 247);
+  --textDark: hsla(0, 0%, 0%, 0.66);
+  --textLight: hsla(0, 0%, 0%, 0.33);
+}
+
+body {
+  background: var(--background);
+  height: 100vh;
+  color: var(--textDark);
+}
+
+.field:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.register {
+  margin-top: 10rem;
+  background: white;
+  border-radius: 10px;
+}
+
+.left,
+.right {
+  padding: 4.5rem;
+}
+
+.left {
+  border-right: 5px solid var(--background);
+}
+
+.left .title {
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.left .colored {
+  color: $primary;
+  font-weight: 500;
+  margin-top: 1rem !important;
+  letter-spacing: -1px;
+}
+
+.left p {
+  color: var(--textLight);
+  font-size: 1.15rem;
+}
+
+.right .title {
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.right .description {
+  margin-top: 1rem;
+  margin-bottom: 1rem !important;
+  color: var(--textLight);
+  font-size: 1.15rem;
+}
+
+.right small {
+  color: var(--textLight);
+}
+
+input {
+  font-size: 1rem;
+}
+
+input:focus {
+  border-color: $primary !important;
+  box-shadow: 0 0 0 1px $primary !important;
+}
+
+.fab,
+.fas {
+  color: var(--textLight);
+  margin-right: 1rem;
+}
+
+.va {
+  display: flex;
+  align-items: center;
 }

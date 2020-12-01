@@ -41,7 +41,12 @@ const Register: React.FC = () => {
               </div>
             </div>
             <div className="has-text-centered">
-              <Button text="Register" color="primary" as="a" />
+              <Link
+                href="/getting-started/"
+                locale={locale}
+              >
+                <Button text="Register" color="primary" as="a" />
+              </Link>
             </div>
             <div className="has-text-centered">
               <Link href="/accounts/login" locale={locale}>
