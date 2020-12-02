@@ -7,7 +7,6 @@ type Props = {
   children?: JSX.Element;
 }
 
-
 const Input = ({type, placeholder, as, children, ...rest}: Props) => {
   if (as === "select") {
     return (
