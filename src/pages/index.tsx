@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useIntl } from 'react-intl';
 import Button from '../components/elements/Button';
+import Navbar from '../components/structures/Navbar';
 
 const Home: React.FC = () => {
   const { formatMessage } = useIntl();
@@ -14,41 +15,24 @@ const Home: React.FC = () => {
     <div id="wrapper" className="has-text-centered-mobile">
       <section id="hero" className="hero is-medium">
         <div className="hero-head">
-          <nav className="navbar">
-            <div className="container">
-              <div className="navbar-brand">
-                <a href="/" className="navbar-item">
-                  <h3 className="logo has-text-green is-size-4">Decyphr</h3>
+          <Navbar>
+            <div className="navbar-menu">
+              <div className="navbar-end">
+                <a href="/" className="a-menu is-size-7 navbar-item">
+                  {f(`navlinkHome`)}
+                </a>
+                <a href="/" className="a-menu is-size-7 navbar-item">
+                  {f(`navlinkAbout`)}
+                </a>
+                <a href="/" className="a-menu is-size-7 navbar-item">
+                  {f(`navlinkFeatures`)}
+                </a>
+                <a href="/" className="a-menu is-size-7 navbar-item">
+                  {f(`navlinkContact`)}
                 </a>
               </div>
-
-              <div className="navbar-menu">
-                <div className="navbar-end">
-                  <a href="/" className="a-menu is-size-7 navbar-item">
-                    {f(`navlinkHome`)}
-                  </a>
-                  <a href="/" className="a-menu is-size-7 navbar-item">
-                    {f(`navlinkAbout`)}
-                  </a>
-                  <a href="/" className="a-menu is-size-7 navbar-item">
-                    {f(`navlinkFeatures`)}
-                  </a>
-                  <a href="/" className="a-menu is-size-7 navbar-item">
-                    {f(`navlinkContact`)}
-                  </a>
-                </div>
-              </div>
-
-              <span
-                className="navbar-burger burger"
-                data-target="navbarMenuHeroA"
-              >
-                <span />
-                <span />
-                <span />
-              </span>
             </div>
-          </nav>
+          </Navbar>
         </div>
         <div className="hero-body">
           <div className="container">
