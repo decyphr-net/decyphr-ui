@@ -55,7 +55,12 @@ const GettingStarted: React.FC = () => {
                     </Input>
                   </div>
                 </div>
-                <Button text="Next" color="primary" />
+                <Link
+                  href="/dashboard"
+                  locale={locale}
+                >
+                  <Button text="Next" color="primary" as="a" />
+                </Link>
               </form>
             </div>
 
