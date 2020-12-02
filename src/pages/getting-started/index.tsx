@@ -14,7 +14,7 @@ const GettingStarted: React.FC = () => {
   return (
     <section className="container">
       <div className="columns is-multiline">
-        <div className="column is-8 is-offset-2 register">
+        <div className="column is-10 is-offset-1 register">
           <div className="columns">
             <div className="column left">
               <h1 className="title is-2">
@@ -33,12 +33,12 @@ const GettingStarted: React.FC = () => {
                 Getting Started
               </h1>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit
+                Let us know your language preferences.
               </p>
 
               <form>
                 <div className="field">
-                  <label className="label">Native Language</label>
+                  <label className="label mt-4">Native Language</label>
                   <div className="control">
                     <Input as="select">
                       <option>English</option>
