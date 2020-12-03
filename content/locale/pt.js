@@ -23,4 +23,22 @@ export const pt = {
     marketingThreeHeader: "Desenvolva suas habilidades de leitura",
     marketingThreeText: "A leitura é muitas vezes tão importante quanto falar e também pode ser uma ótima maneira de desenvolver seu vocabulário dentro do gênero que você gosta e nossas ferramentas ajudarão você a entender qualquer texto desconhecido que você encontrar",
   },
+
+  "/accounts/login": {
+    formHeader: "Login para Decyphr",
+    username: "Usuário",
+    password: "Senha",
+    loginButton: "Iniciar Sessão",
+    signUpLink: "Não tem uma conta? Cadastre-se agora!",
+    imgAlt: "Estudante aprendendo no computador"
+  },
+
+  "/accounts/register": {
+    formHeader: "Inscreva-se para Decyphr",
+    username: "Usuário",
+    password: "Senha",
+    signUpButton: "Registar",
+    loginLink: "Já tem uma conta? Entrar agora",
+    imgAlt: "Estudante aprendendo no computador"
+  }
 }

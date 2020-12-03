@@ -23,4 +23,22 @@ export const en = {
     marketingThreeHeader: "Develop your reading skills",
     marketingThreeText: "Reading is often just as important as speaking and can also be a great way developing your vocabulary within the genre that you enjoy and our tools will help you understand any unfamiliar text that you encounter",
   },
+
+  "/accounts/login": {
+    formHeader: "Login to Decyphr",
+    username: "Username",
+    password: "Password",
+    loginButton: "Login",
+    signUpLink: "Don't have an account? Sign up now!",
+    imgAlt: "Student learning on computer"
+  },
+
+  "/accounts/register": {
+    formHeader: "Sign up to Decyphr",
+    username: "Username",
+    password: "Password",
+    signUpButton: "Register",
+    loginLink: "Already have an account? Sign in now",
+    imgAlt: "Student learning on computer"
+  }
 }

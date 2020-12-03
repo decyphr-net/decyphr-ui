@@ -17,19 +17,19 @@ const Register: React.FC = () => {
         <section className="section">
           <div className="has-centered-text">
             <h1>Decyphr</h1>
-            <p>Sign up to Decyphr</p>
+            <p>{f(`formHeader`)}</p>
           </div>
 
           <form>
             <div className="field">
-              <label className="label" htmlFor="username">Username</label>
+              <label className="label" htmlFor="username">{f(`username`)}</label>
               <div className="control">
                 <Input id="username" type="text" />
               </div>
             </div>
 
             <div className="field">
-              <label className="label" htmlFor="password">Password</label>
+              <label className="label" htmlFor="password">{f(`password`)}</label>
               <div className="control">
                 <Input id="password" type="password" />
               </div>
@@ -39,12 +39,12 @@ const Register: React.FC = () => {
                 href="/getting-started/"
                 locale={locale}
               >
-                <Button text="Register" color="primary" as="a" />
+                <Button text={f(`signUpButton`)} color="primary" as="a" />
               </Link>
             </div>
             <div className="has-text-centered">
               <Link href="/accounts/login" locale={locale}>
-                <a>Already have an account? Sign in now</a>
+                <a>{f(`loginLink`)}</a>
               </Link>
             </div>
           </form>
@@ -52,7 +52,7 @@ const Register: React.FC = () => {
       </div>
       <div className="interactive-bg column is-8">
         <img
-          alt="Student learning on computer"
+          alt={f(`Student learning on computer`)}
           className="panel-img"
           src="/img/login-bg.jpg"
         />
