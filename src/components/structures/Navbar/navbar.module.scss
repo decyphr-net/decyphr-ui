@@ -1,0 +1,13 @@
+@import '../../../../styles/variables';
+
+.nav {
+  padding-top: 20px;
+  max-height: 50px;
+  background-color: $background;
+}
+
+.burger {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

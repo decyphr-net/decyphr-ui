@@ -51,7 +51,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <section id="twitter-feed" className="section has-white-mustard-gradient">
+      <section className="section has-white-mustard-gradient">
         <div className="container">
           <div className="columns">
             <Card title={f(`cardOneHeader`)} description={f(`cardOneText`)} />
@@ -113,7 +113,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-      <section id="newsletter" className="section">
+      <section className="section">
         <div className="container">
           <div className="columns">
             <div className="column">

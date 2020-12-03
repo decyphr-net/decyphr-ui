@@ -129,10 +129,6 @@ Wrapper
 /*
 Some aesthetic improvements
 */
-nav {
-  padding-top: 20px;
-  max-height: 50px;
-}
 
 .paragraph {
   width: 600px;
@@ -142,11 +138,7 @@ nav {
 /*
 Hero
 */
-.burger {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+
 @media (min-width: 1024px) {
   .hero-body {
     background-image: url(../public/img/hero.svg);
@@ -215,41 +207,12 @@ Features
   }
 }
 
-/*
-Newsletter
-*/
-#newsletter {
-  text-align: center;
-}
-
-#newsletter p {
-  width: 600px;
-  margin: 0 auto;
-}
-
 .social-link {
   padding: 15px;
   color: #ffffff !important;
 }
 
-.newsletter-input {
-  border: none;
-  border-bottom: 2px solid #1e4132;
-  border-radius: 0% !important;
-  box-shadow: none;
-  text-align: center;
-}
-
-#newsletter .field {
-  width: 400px;
-  max-width: 80%;
-  padding: 20px;
-  margin: 0 auto;
-}
-
-/*
-Footer
-*/
+/*Footer */
 #footer p {
   padding: 20px;
 }
@@ -283,13 +246,12 @@ Footer
 }
 
 :root {
-  --background: rgb(247, 247, 247);
   --textDark: hsla(0, 0%, 0%, 0.66);
   --textLight: hsla(0, 0%, 0%, 0.33);
 }
 
 body {
-  background: var(--background);
+  background: $background;
   height: 100vh;
   color: var(--textDark);
 }

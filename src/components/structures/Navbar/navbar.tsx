@@ -1,11 +1,12 @@
 import React from 'react';
+import styles from './navbar.module.scss';
 
 type Props = {
   children?: JSX.Element;
 }
 
 const Navbar: React.FC = ({ children }: Props) => (
-  <nav className="navbar">
+  <nav className={`navbar ${styles["nav"]}`}>
     <div className="container">
       <div className="navbar-brand">
         <a href="/" className="navbar-item">
@@ -16,7 +17,7 @@ const Navbar: React.FC = ({ children }: Props) => (
       { children }
 
       <span
-        className="navbar-burger burger"
+        className={`navbar-burger ${styles["burger"]}`}
         data-target="navbarMenuHeroA"
       >
         <span />
