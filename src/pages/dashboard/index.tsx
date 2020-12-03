@@ -2,9 +2,8 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useIntl } from 'react-intl';
-import Button from '../../components/elements/Button';
-import Input from '../../components/elements/Input';
 import Navbar from '../../components/structures/Navbar';
+import Card from '../../components/structures/Card';
 
 const Dashboard: React.FC = () => {
   const { formatMessage } = useIntl();
@@ -18,21 +17,48 @@ const Dashboard: React.FC = () => {
         <Navbar>
           <div className="navbar-menu">
             <div className="navbar-end">
-              <a href="/" className="a-menu is-size-7 navbar-item">
-                Courses
-              </a>
-              <a href="/" className="a-menu is-size-7 navbar-item">
-                Reading
-              </a>
-              <a href="/" className="a-menu is-size-7 navbar-item">
-                Practice
-              </a>
-              <a href="/" className="a-menu is-size-7 navbar-item">
-                Logout
-              </a>
+              <Link
+                href="/accounts/login"
+                locale={locale}
+              >
+                <a className="a-menu is-size-7 navbar-item">
+                  Courses
+                </a>
+              </Link>
+              <Link
+                href="/accounts/login"
+                locale={locale}
+              >
+                <a className="a-menu is-size-7 navbar-item">
+                  Reading
+                </a>
+              </Link>
+              <Link
+                href="/accounts/login"
+                locale={locale}
+              >
+                <a className="a-menu is-size-7 navbar-item">
+                  Practice
+                </a>
+              </Link>
+              <Link
+                href="/accounts/login"
+                locale={locale}
+              >
+                <a className="a-menu is-size-7 navbar-item">
+                  Logout
+                </a>
+              </Link>
             </div>
           </div>
         </Navbar>
+        <div>
+          <div className="columns">
+            <Card title="Courses" description="Check out your course list" />
+            <Card title="Book List" description="Add some new books to your book list" />
+            <Card title="Practice" description="Practice your translations" />
+          </div>
+        </div>
       </section>
     </div>
   )

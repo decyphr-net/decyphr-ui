@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useIntl } from 'react-intl';
 import Button from '../components/elements/Button';
 import Navbar from '../components/structures/Navbar';
+import Card from '../components/structures/Card';
 
 const Home: React.FC = () => {
   const { formatMessage } = useIntl();
@@ -53,44 +54,9 @@ const Home: React.FC = () => {
       <section id="twitter-feed" className="section has-white-mustard-gradient">
         <div className="container">
           <div className="columns">
-            <div className="column">
-              <div className="box">
-                <article className="media">
-                  <div className="media-content">
-                    <div className="content">
-                      <h2>{f(`cardOneHeader`)}</h2>
-                      <p>{f(`cardOneText`)}</p>
-                    </div>
-                  </div>
-                </article>
-              </div>
-            </div>
-
-            <div className="column">
-              <div className="box">
-                <article className="media">
-                  <div className="media-content">
-                    <div className="content">
-                      <h2>{f(`cardTwoHeader`)}</h2>
-                      <p>{f(`cardTwoText`)}</p>
-                    </div>
-                  </div>
-                </article>
-              </div>
-            </div>
-
-            <div className="column">
-              <div className="box">
-                <article className="media">
-                  <div className="media-content">
-                    <div className="content">
-                      <h2>{f(`cardThreeHeader`)}</h2>
-                      <p>{f(`cardThreeText`)}</p>
-                    </div>
-                  </div>
-                </article>
-              </div>
-            </div>
+            <Card title={f(`cardOneHeader`)} description={f(`cardOneText`)} />
+            <Card title={f(`cardTwoHeader`)} description={f(`cardTwoText`)} />
+            <Card title={f(`cardThreeHeader`)} description={f(`cardThreeText`)} />
           </div>
         </div>
       </section>
