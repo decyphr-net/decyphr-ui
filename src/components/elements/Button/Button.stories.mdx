@@ -47,12 +47,23 @@ Using the standard buttons is straightforward. Simply import using the above imp
 
 Rounded buttons are a variation of the normal
 
+```javascript
+<Button text="Submit" color="primary" variant="rounded" />
+```
+
 <Story name="Round Button">
   <Button text="Round Primary" color="primary" variant="rounded" />
   <Button text="Round Secondary" color="secondary" variant="rounded" />
 </Story>
 
 ## Buttons with Drop Shadows
+
+Both rounded and square buttons can have drop shadows
+
+```javascript
+<Button text="Submit" color="primary" modifier="shadow" />
+<Button text="Submit" color="primary" variant="rounded" modifier="shadow" />
+```
 
 <Story name="With Shadows">
   <Button text="Shadowed Primary" color="primary" modifier="shadow" />
