@@ -2,7 +2,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react';
-import Button from '../elements/Button';
+import Button from '.';
 
 it(`renders a primary colored button correctly`, () => {
   const tree = renderer.create(<Button text="Some Text" color="primary" />).toJSON();
