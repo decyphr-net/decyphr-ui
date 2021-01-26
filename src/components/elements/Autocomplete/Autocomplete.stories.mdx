@@ -1,0 +1,21 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import Autocomplete from '.';
+
+<Meta
+  title="Autocomplete"
+  component={Autocomplete}
+  argTypes={{
+    placeholder: { control: 'text' },
+  }}
+/>
+
+Inputs
+
+<Story name="Autocomplete">
+  <Autocomplete
+    name="fruit"
+    label="Fruit"
+    placeholder="Begin typing a fruit"
+    data={['Apple', 'Banana', 'Orange', 'Peach', 'Blueberry', 'Pear']}
+  />
+</Story>

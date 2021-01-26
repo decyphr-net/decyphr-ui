@@ -1,0 +1,23 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import Input from '.';
+
+<Meta
+  title="Input"
+  component={Input}
+  argTypes={{
+    placeholder: { control: 'text' },
+  }}
+/>
+
+Inputs
+
+<Story name="Text Input">
+  <Input type="Text" />
+</Story>
+
+<Story name="Select Input">
+  <Input as="select">
+    <option>Hello</option>
+    <option>World</option>
+  </Input>
+</Story>
