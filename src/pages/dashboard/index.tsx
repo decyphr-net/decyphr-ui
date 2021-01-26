@@ -18,7 +18,7 @@ const Dashboard: React.FC = () => {
           <div className="navbar-menu">
             <div className="navbar-end">
               <Link
-                href="/accounts/login"
+                href="/course"
                 locale={locale}
               >
                 <a className="a-menu is-size-7 navbar-item">
@@ -26,7 +26,7 @@ const Dashboard: React.FC = () => {
                 </a>
               </Link>
               <Link
-                href="/accounts/login"
+                href="/library"
                 locale={locale}
               >
                 <a className="a-menu is-size-7 navbar-item">
