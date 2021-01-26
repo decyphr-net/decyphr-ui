@@ -7,16 +7,17 @@ type Props = {
   variant?: string;
   modifier?: string;
   as?: string;
+  className?: string;
   children?: JSX.Element;
 }
 
 
-const Button = ({text, color, variant, modifier, as, children, ...rest}: Props) => {
+const Button = ({text, color, variant, modifier, className, as, children, ...rest}: Props) => {
 
   if (as === 'a') {
     return (
       <a
-        className={`button ${styles[color]} ${styles[variant]} ${styles[modifier]}`}
+        className={`button ${styles[color]} ${styles[variant]} ${styles[modifier]} ${className}`}
         data-testid="link"
         {...rest}
       >
@@ -26,7 +27,7 @@ const Button = ({text, color, variant, modifier, as, children, ...rest}: Props) 
   } else {
     return (
       <button
-        className={`button ${styles[color]} ${styles[variant]} ${styles[modifier]}`}
+        className={`button ${styles[color]} ${styles[variant]} ${styles[modifier]} ${className}`}
         data-testid="button"
         {...rest}
       >
