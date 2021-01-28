@@ -68,8 +68,8 @@ class Autocomplete extends React.Component {
         matches:
           query.length >= 2
             ? data.filter(
-                item => item.toUpperCase().indexOf(query.toUpperCase()) >= 0
-              )
+              item => item.toUpperCase().indexOf(query.toUpperCase()) >= 0
+            )
             : [],
         query
       });
@@ -89,11 +89,11 @@ class Autocomplete extends React.Component {
     const { activeIndex, matches, query } = this.state;
 
     return (
-      <div className="field">
-        {label && <label className="label">{label}</label>}
-        <div className="control">
-          <div className={`dropdown ${matches.length > 0 ? "is-active" : ""}`}>
-            <div className="dropdown-trigger">
+      <div className="field" style={{ width: "100%" }}>
+        {label && <label className="label has-text-left">{label}</label>}
+        <div className="control" style={{ width: "100%" }}>
+          <div className={`dropdown ${matches.length > 0 ? "is-active" : ""}`} style={{ width: "100%" }}>
+            <div className="dropdown-trigger" style={{ width: "100%" }}>
               <input
                 type="text"
                 className="input"
@@ -102,26 +102,32 @@ class Autocomplete extends React.Component {
                 onChange={this.updateQuery}
                 onKeyDown={this.handleKeyPress}
                 placeholder={placeholder}
-                style={{width: "500%"}}
+                style={{ width: "1000%" }}
               />
             </div>
-            <div className="dropdown-menu">
+            <div className="dropdown-menu" style={{ width: "100%" }}>
               {matches.length > 0 && (
-                <div className="dropdown-content" style={{width: "100%"}}>
+                <div className="dropdown-content" style={{ width: "100%" }}>
                   {matches.map((match, index) => (
-                    <div style={{display: "inline", width: "100%"}}>
-                    <img src="https://via.placeholder.com/50" />
-                    <a
-                      className={`dropdown-item ${
-                        index === activeIndex ? "is-active" : ""
-                      }`}
-                      href="/"
+                    <div className={`media dropdown-item`}
                       key={match}
                       onClick={event => this.handleSelection(event, match)}
-                      style={{display: "inline", width: "100%"}}
                     >
-                      {match}
-                    </a>
+                      <div className="media-left" style={{ display: "inline" }}>
+                        <img src="https://via.placeholder.com/100" />
+                      </div>
+                      <div className={`media-content`} style={{ display: "inline", width: "100%" }}>
+                        <p
+                          style={{ position: "absolute", top: "0", display: "inline", fontSize: "2rem" }}
+                        >
+                          {match}
+                        </p>
+                        <p
+                          style={{ position: "absolute", top: "75px", display: "inline-block", fontSize: "1rem" }}
+                        >
+                          {" "}- Written by JRR Tolkin in 1930
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
