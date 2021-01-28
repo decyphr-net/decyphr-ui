@@ -6,7 +6,7 @@ type Props = {
   children?: JSX.Element;
 }
 
-const Card: React.FC = ({title, description, children }: Props) => (
+const Card: React.FC<Props> = ({title, description }: Props) => (
   <div className="column">
     <div className="box">
       <article className="media">

@@ -7,7 +7,7 @@ type Props = {
   children?: JSX.Element;
 }
 
-const Panel: React.FC = ({title, description, children }: Props) => (
+const Panel: React.FC<Props> = ({title, description }: Props) => (
   <div className="column">
     <div className=" box columns">
       <div className="column is-3">
