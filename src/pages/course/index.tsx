@@ -14,8 +14,7 @@ const Course: React.FC = () => {
 
   return (
     <DashboardLayout>
-      <div className="column is-1"></div>
-      <div className="column is-7 is-block">
+      <div className="column is-6 is-block">
         <h2 className="has-text-left ml-4 is-size-1 has-text-weight-light">Your courses</h2>
         <Panel
           title="English for Portuguese speakers"
@@ -24,7 +23,7 @@ const Course: React.FC = () => {
         <Panel title="English for Portuguese speakers" description="Check out your course list" />
         <Panel title="English for Portuguese speakers" description="Check out your course list" />
       </div>
-      <div className="column is-3 is-block">
+      <div className="column is-2 is-block">
         <h2 className="has-text-left ml-4 mt-5 is-size-3 has-text-weight-light">More courses</h2>
         <Link href="/course/1">
           <a>
