@@ -58,8 +58,9 @@ const DashboardLayout: React.FC = ({ children }: Props) => {
 
       </section>
 
-      <section className="section ml-6 mt-3">
+      <section className="section mt-3">
         <div className="columns">
+          <div className="column is-2"></div>
           {children}
         </div>
       </section>
