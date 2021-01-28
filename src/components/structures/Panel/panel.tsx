@@ -12,7 +12,7 @@ const Panel: React.FC<Props> = ({title, description }: Props) => (
     <div className=" box columns">
       <div className="column is-3">
       <figure className="image is-128x128">
-        <img src="https://bulma.io/images/placeholders/128x128.png" />
+        <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" />
       </figure>
       </div>
       <div className="column is-9 is-block">
