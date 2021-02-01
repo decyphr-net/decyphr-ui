@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { useIntl } from 'react-intl';
 import DashboardLayout from '../../components/layouts/dashboard';
-import Button from '../../components/elements/Button';
+import { Panel, PanelItem } from '../../components/structures/Panel';
 
 const CourseDetails: React.FC = () => {
   const { formatMessage } = useIntl();
@@ -14,36 +14,12 @@ const CourseDetails: React.FC = () => {
   return (
     <DashboardLayout>
       <div className="column is-8">
-        <div className="panel columns">
-        <div className="column is-4 has-background-white" style={{display: "inline"}}>
-          <p className="panel-heading has-background-info has-text-white">
-            Unidades
-          </p>
-          <div className="pt-4">
-            <a className="panel-block is-active" href="/course/unit/{{ lesson_unit.id }}">
-              <span className="panel-icon">
-                <i className="fas fa-book" aria-hidden="true"></i>
-              </span>
-              Hello World
-            </a>
-          </div>
-          <div className="pt-4">
-            <a className="panel-block is-active" href="/course/unit/{{ lesson_unit.id }}">
-              <span className="panel-icon">
-                <i className="fas fa-book" aria-hidden="true"></i>
-              </span>
-              Hello
-            </a>
-          </div>
-          <div className="pt-4">
-            <a className="panel-block is-active" href="/course/unit/{{ lesson_unit.id }}">
-              <span className="panel-icon">
-                <i className="fas fa-book" aria-hidden="true"></i>
-              </span>
-              World
-            </a>
-          </div>
-        </div>
+        <div className="columns">
+        <Panel title="Units">
+          <PanelItem id="1" title="Hello World" isCompleted={true} />
+          <PanelItem id="1" title="World" isCompleted={true} />
+          <PanelItem id="1" title="Hello" isCompleted={false} />
+        </Panel>
 
         <div className="column is-8 has-background-white" style={{display: "inline"}}>
           <p className="panel-heading has-background-info has-text-white">
@@ -80,9 +56,8 @@ const CourseDetails: React.FC = () => {
             </p>
           </div>
         </div>
-
+        </div>
       </div>
-    </div>
     </DashboardLayout>
   )
 }
