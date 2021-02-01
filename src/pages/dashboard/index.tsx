@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { useIntl } from 'react-intl';
 import DashboardLayout from '../../components/layouts/dashboard';
-import Card from '../../components/structures/Card';
+import { Card } from '../../components/structures/Card';
 
 const Dashboard: React.FC = () => {
   const { formatMessage } = useIntl();

@@ -1,12 +1,12 @@
 import React from 'react';
 
-type Props = {
+type CardProps = {
   title: string;
   description: string;
   children?: JSX.Element;
 }
 
-const Card: React.FC<Props> = ({title, description }: Props) => (
+export const Card: React.FC<CardProps> = ({title, description }: CardProps) => (
   <div className="column">
     <div className="box">
       <article className="media">
@@ -21,4 +21,26 @@ const Card: React.FC<Props> = ({title, description }: Props) => (
   </div>
 )
 
-export default Card;
+type CourseCardProps = {
+  title: string;
+  description: string;
+  imgSrc: string;
+  children?: JSX.Element[];
+}
+
+export const CourseCard: React.FC<CourseCardProps> = ({title, description, imgSrc, children }: CourseCardProps) => (
+  <div className="column">
+    <div className=" box columns">
+      <div className="column is-3">
+      <figure className="image is-128x128">
+        <img className="is-rounded" src={imgSrc} />
+      </figure>
+      </div>
+      <div className="column is-9 is-block">
+        <h3 className="m-4 is-size-3 has-text-left">{title}</h3>
+        <p className="m-4 has-text-left">{description}</p>
+          {children}
+        </div>
+    </div>
+  </div>
+)
