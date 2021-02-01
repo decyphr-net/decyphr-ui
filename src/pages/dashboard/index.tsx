@@ -12,9 +12,18 @@ const Dashboard: React.FC = () => {
 
   return (
     <DashboardLayout>
-      <Card title="Courses" description="Check out your course list" />
-      <Card title="Book List" description="Add some new books to your book list" />
-      <Card title="Practice" description="Practice your translations" />
+      <div className="column is-2">
+        <Card title="Courses" description="Search for new courses, or continue" />
+      </div>
+      <div className="column is-2">
+        <Card title="Book List" description="Add some new books to your book list" />
+      </div>
+      <div className="column is-2">
+        <Card title="Practice" description="Practice the translations from your reading sessions" />
+      </div>
+      <div className="column is-2">
+        <Card title="Class" description="Schedule a class with your tutor of choice" />
+      </div>
     </DashboardLayout>
   )
 }
