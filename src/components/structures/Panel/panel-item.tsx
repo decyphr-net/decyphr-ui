@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaCheckCircle, FaBook } from 'react-icons/fa';
 
 
 type Props = {
@@ -9,12 +10,12 @@ type Props = {
 }
 
 export const PanelItem: React.FC<Props> = ({id, title, isCompleted }: Props) => (
-  <div className="pt-4">
+  <div className="pt-2">
     <a className="panel-block" href={`/courseware/${id}`}>
       <span className="panel-icon">
         {isCompleted
-          ? <i className="fas fa-check-circle has-text-success" aria-hidden="true"></i>
-          : <i className="fas fa-book" aria-hidden="true"></i>
+          ? <FaCheckCircle className="has-text-success" />
+          : <FaBook />
         }
       </span>
       {title}
