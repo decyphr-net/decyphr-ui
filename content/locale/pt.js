@@ -40,5 +40,17 @@ export const pt = {
     signUpButton: "Registar",
     loginLink: "Já tem uma conta? Entrar agora",
     imgAlt: "Estudante aprendendo no computador"
+  },
+
+  "/getting-started": {
+    welcomeTitle: "Bem-vindo",
+    welcomeSubtitle: "a Decyphr",
+    descriptionText: "Percebemos que você acabou de se inscrever, então só precisamos fazer algumas perguntas rápidas antes de começar.",
+
+    formTitle: "Vamos comecar",
+    formSubtitle: "Deixe-nos saber suas preferências de idioma.",
+    nativeLanguage: "Língua nativa",
+    newLanguage: "Nova linguagem",
+    nextButton: "Proxima"
   }
 }

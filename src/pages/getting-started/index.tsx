@@ -18,27 +18,26 @@ const GettingStarted: React.FC = () => {
           <div className="columns">
             <div className="column left">
               <h1 className="title is-2">
-                Welcome
+                {f(`welcomeTitle`)}
               </h1>
 
-              <h2 className="subtitle coloured is-4"> to Decyphr.</h2>
+              <h2 className="subtitle coloured is-4">{" "}{f(`welcomeSubtitle`)}.</h2>
 
               <p className="description">
-                We noticed that you just signed up so we just need to ask you a couple
-                of quick questions before we get started.
+                {f(`descriptionText`)}
               </p>
             </div>
             <div className="column right has-text-centered">
               <h1 className="title is-4">
-                Getting Started
+                {f(`formTitle`)}
               </h1>
               <p>
-                Let us know your language preferences.
+                {f(`formSubtitle`)}
               </p>
 
               <form>
                 <div className="field">
-                  <label className="label mt-4">Native Language</label>
+                  <label className="label mt-4">{f(`nativeLanguage`)}</label>
                   <div className="control">
                     <Input as="select">
                       <option>English</option>
@@ -47,7 +46,7 @@ const GettingStarted: React.FC = () => {
                   </div>
                 </div>
                 <div className="field">
-                <label className="label">New Language</label>
+                <label className="label">{f(`newLanguage`)}</label>
                   <div className="control">
                     <Input as="select">
                       <option>English</option>
@@ -59,7 +58,7 @@ const GettingStarted: React.FC = () => {
                   href="/dashboard"
                   locale={locale}
                 >
-                  <Button text="Next" color="primary" as="a" />
+                  <Button text={f(`nextButton`)} color="primary" as="a" />
                 </Link>
               </form>
             </div>
