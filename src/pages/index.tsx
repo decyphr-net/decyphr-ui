@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useIntl } from 'react-intl';
 import Button from '../components/elements/Button';
 import Navbar from '../components/structures/Navbar';
-import Card from '../components/structures/Card';
+import { Card } from '../components/structures/Card';
 
 const Home: React.FC = () => {
   const { formatMessage } = useIntl();
