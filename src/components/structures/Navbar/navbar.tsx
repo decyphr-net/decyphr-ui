@@ -9,7 +9,7 @@ const Navbar: React.FC = ({ children }: Props) => (
   <nav className={`navbar ${styles["nav"]}`}>
     <div className="container">
       <div className="navbar-brand">
-        <a href="/" className="navbar-item">
+        <a href="/dashboard" className="navbar-item">
           <h3 className="logo has-text-green is-size-4">Decyphr</h3>
         </a>
       </div>
