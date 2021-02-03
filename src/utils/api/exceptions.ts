@@ -1,4 +1,4 @@
-export default class ClassError extends Error {
+export default class APIError extends Error {
 
   data: any;
   code: number;

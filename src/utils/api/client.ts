@@ -1,5 +1,5 @@
 import endpoints from './endpoints';
-import ClassError from './excpetions';
+import APIError from './exceptions';
 
 export default class APIInterface<T, U> {
   private _BASE_URL: string = process.env.API;
@@ -57,7 +57,7 @@ export default class APIInterface<T, U> {
       return result;
     }
 
-    throw new ClassError(response.statusText, result, response.status);
+    throw new APIError(response.statusText, result, response.status);
   }
 
   public getResponseData() {
