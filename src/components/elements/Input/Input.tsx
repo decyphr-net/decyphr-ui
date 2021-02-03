@@ -1,13 +1,15 @@
 import React from 'react';
 
 type Props = {
+  id?: string;
+  className?: string;
   type?: string;
   placeholder?: string;
   as?: string;
   children?: JSX.Element;
 }
 
-const Input = ({type, placeholder, as, children, ...rest}: Props) => {
+const Input = ({id, type, placeholder, as, children,  className = '', ...rest}: Props) => {
   if (as === "select") {
     return (
       <div className="select">
@@ -18,7 +20,7 @@ const Input = ({type, placeholder, as, children, ...rest}: Props) => {
     )
   } else {
     return (
-      <input className="input" {...rest} />
+      <input id={id} className={`input ${className}`} type={type} placeholder={placeholder} {...rest} />
     )
   }
 };

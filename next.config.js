@@ -3,4 +3,7 @@ module.exports = {
     locales: ["en", "pt"],
     defaultLocale: "en",
   },
+  env: {
+    API: process.env.API,
+  }
 }
