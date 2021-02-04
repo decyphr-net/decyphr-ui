@@ -22,29 +22,81 @@ const Login: React.FC = () => {
     }
   })
 
-  const handleSubmission = () => {
-    const apiInterface = new APIInterface('login', {
-      username: email,
-      password: password
-    });
-    apiInterface.request().then((response) => {
-      localStorage.setItem('token', response.auth_token);
-      router.push('/dashboard', `/${locale}/dashboard`)
-    }).catch((errors) => {
-      for (let error in errors.data) {
-        let inputField = document.querySelector(`#${error}`);
-        inputField.classList.add('is-danger');
+  const validateForm = () => {
+    let usernameField = document.querySelector('#username');
+    let passwordField = document.querySelector('#password');
+    let usernameParentField = usernameField.parentElement;
+    let passwordParentField = passwordField.parentElement;
+    let valid = true;
 
-        let inputParent = inputField.parentElement;
+    if (!email) {
+      usernameField.classList.add('is-danger');
 
+      if (!(usernameParentField.querySelectorAll('p').length > 0)) {
         let node = document.createElement('p');
-        let textnode = document.createTextNode(errors.data[error]);
+        let textnode = document.createTextNode('Please enter a username');
         node.appendChild(textnode);
+        node.setAttribute('id', 'username-help')
         node.classList.add('help');
         node.classList.add('is-danger');
-        inputParent.appendChild(node);
+        usernameParentField.appendChild(node);
       }
-    })
+      valid = false;
+    }
+
+    if (!password) {
+      passwordField.classList.add('is-danger');
+
+      if (!(passwordParentField.querySelectorAll('p').length > 0)) {
+        let node = document.createElement('p');
+        let textnode = document.createTextNode('Please enter a password');
+        node.appendChild(textnode);
+        node.setAttribute('id', 'password-help')
+        node.classList.add('help');
+        node.classList.add('is-danger');
+        passwordParentField.appendChild(node);
+      }
+      valid = false;
+    }
+
+    if (email && usernameField.classList.contains('is-danger')) {
+      usernameField.classList.remove('is-danger');
+      if (usernameParentField.querySelectorAll('p').length > 0) {
+        let helpText = document.getElementById('username-help');
+        usernameParentField.removeChild(helpText);
+      }
+    }
+
+    if (password && passwordParentField.querySelectorAll('p').length > 0) {
+      usernameField.classList.remove('is-danger');
+      let helpText = document.getElementById('password-help');
+      passwordParentField.removeChild(helpText);
+    }
+
+    return valid;
+  }
+
+  const renderErrors = (errors: any) => {
+    let usernameField = document.querySelector('#username');
+    let passwordField = document.querySelector('#password');
+    let errorsParagraph = document.querySelector('#errors');
+
+    usernameField.classList.add('is-danger');
+    passwordField.classList.add('is-danger');
+    errorsParagraph.innerHTML = errors[0];
+  }
+
+  const handleSubmission = () => {
+    if (validateForm()) {
+      const apiInterface = new APIInterface('login', {
+        username: email,
+        password: password
+      });
+      apiInterface.request().then((response) => {
+        localStorage.setItem('token', response.auth_token);
+        router.push('/dashboard', `/${locale}/dashboard`);
+      }).catch((errors) => renderErrors(errors.data))
+    }
   }
 
   return (
@@ -71,9 +123,13 @@ const Login: React.FC = () => {
               <Input id="password" type="password" onChange={(e) => setPassword(e.target.value)} />
             </div>
           </div>
+          <div className="field">
+            <div className="control">
+              <p className="help is-danger" id="errors"></p>
+            </div>
+          </div>
           <div className="has-text-centered">
             <Button text={f(`loginButton`)} color="primary" as="button" onClick={handleSubmission} />
-
           </div>
           <div className="has-text-centered">
             <Link href="/accounts/register" locale={locale}>
