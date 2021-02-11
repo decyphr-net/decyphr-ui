@@ -1,0 +1,53 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { PricingTable, PricingCard } from '.';
+
+<Meta title="PricingTable" component={PricingTable} />
+
+PricingTable
+
+<Story name="PricingTable">
+  <PricingTable>
+    <PricingCard
+      name="Reader"
+      cost={0}
+      benefits={[
+        'Enroll in 1 language course',
+        'Access book translations',
+        'Up to 5 books',
+        'Up to 100 translations',
+        '-',
+        '-',
+      ]}
+      isCurrent={true}
+    />
+    <PricingCard
+      name="Standard"
+      cost={15}
+      benefits={[
+        'Access Course Material',
+        '1 video lesson per week',
+        'Access Book Translations',
+        'Up to 25 books',
+        'Unlimited translations',
+        '-',
+      ]}
+      isCurrent={false}
+      textClass="is-success"
+      additionalClass="is-active"
+    />
+    <PricingCard
+      name="Linguist"
+      cost={25}
+      benefits={[
+        'Unlimited course enrollments',
+        'Up to 3 video lessons per week',
+        'Access Book Translations',
+        'Unlimited books',
+        'Unlimited translations',
+        'Unlimited translator usage',
+      ]}
+      isCurrent={false}
+      textClass="is-warning"
+    />
+  </PricingTable>
+</Story>
