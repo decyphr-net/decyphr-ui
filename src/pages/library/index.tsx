@@ -4,6 +4,8 @@ import { useIntl } from 'react-intl';
 import DashboardLayout from '../../components/layouts/dashboard';
 import Autocomplete from '../../components/elements/Autocomplete';
 import APIInterface from '../../utils/api/client';
+import Button from '../../components/elements/Button';
+import { BookCard } from '../../components/structures/Card';
 
 const Library: React.FC = () => {
   const [userLibrary, setUserLibrary] = useState([]);
@@ -53,17 +55,19 @@ const Library: React.FC = () => {
         />
 
         <h3 className="has-text-left is-size-3 mt-6">Continue a book from your library</h3>
-        <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-          {userLibrary.map((libraryEntry, index) => {
-            return (
-              <tr key={index}>
-                <td><img src={libraryEntry['book'].thumbnail}/></td>
-                <td><p className="is-size-3 mt-3 ml-3 has-text-left">{libraryEntry['book'].title}</p></td>
-                <td>Options</td>
-              </tr>
-            )
-          })}
-        </table>
+        {userLibrary.map((libraryEntry, index) => {
+          return (
+            <BookCard
+              key={index}
+              title={libraryEntry['book'].title}
+              description={`Number of completed sessions: ${libraryEntry['readingsession_count']}`}
+              imgSrc={libraryEntry['book'].thumbnail}
+            >
+              <Button as="a" text="Continue" color="primary" className="is-pulled-right mr-3 ml-3" />
+              <Button as="a" text="Options" color="secondary" className="button is-pulled-right mr-3 ml-6" />
+            </BookCard>
+          )
+        })}
       </div>
     </DashboardLayout>
   )
