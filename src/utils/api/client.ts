@@ -43,6 +43,7 @@ export default class APIInterface<T, U> {
   }
 
   public async request() {
+    console.log(this._data)
     let url: any = this._createEndpointUrl();
     let response = await fetch(url, {
       method: this._endpoint["method"],
@@ -51,7 +52,7 @@ export default class APIInterface<T, U> {
     })
     const result = await response.json()
 
-    console.log(response)
+    console.log(result)
 
     if (response.ok) {
       return result;

@@ -35,8 +35,11 @@ export const pt = {
 
   "/accounts/register": {
     formHeader: "Inscreva-se para Decyphr",
-    username: "Usuário",
+    email: "E-mail",
     password: "Senha",
+    nativeLanguage: "Língua nativa",
+    newLanguage: "Nova linguagem",
+    preferredLanguage: "Língua preferida",
     signUpButton: "Registar",
     loginLink: "Já tem uma conta? Entrar agora",
     imgAlt: "Estudante aprendendo no computador"

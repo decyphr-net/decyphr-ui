@@ -35,8 +35,11 @@ export const en = {
 
   "/accounts/register": {
     formHeader: "Sign up to Decyphr",
-    username: "Username",
+    email: "Email",
     password: "Password",
+    nativeLanguage: "Native Language",
+    newLanguage: "New Language",
+    preferredLanguage: "Preferred language",
     signUpButton: "Register",
     loginLink: "Already have an account? Sign in now",
     imgAlt: "Student learning on computer"
