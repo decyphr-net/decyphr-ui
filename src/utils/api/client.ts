@@ -3,12 +3,18 @@ import APIError from './exceptions';
 
 export default class APIInterface<T, U> {
   private _BASE_URL: string = process.env.API;
+  private _HEADERS: any = {
+    "Content-type": "application/json",
+    Authorization: localStorage.getItem("token") === null ? undefined : "Token " + localStorage.getItem("token"),
+  };
 
-  private _HEADERS: any;
   private _endpoint: string;
   private _pk: string;
   private _params: string;
   private _data: T;
+
+  private _payload: any;
+
   private _isSuccessful: boolean;
   private _response: U;
 
@@ -18,16 +24,10 @@ export default class APIInterface<T, U> {
     this._data = data;
     this._pk = pk;
 
-    if (typeof window !== "undefined") {
-      this._HEADERS = {
-        "Content-type": "application/json",
-      };
-
-      if (localStorage.getItem('token')) {
-        this._HEADERS += {
-          Authorization: "Token " + localStorage.getItem("token"),
-        }
-      }
+    this._payload = {
+      method: this._endpoint["method"],
+      headers: this._HEADERS,
+      body: JSON.stringify(this._data),
     }
   }
 
@@ -43,16 +43,10 @@ export default class APIInterface<T, U> {
   }
 
   public async request() {
-    console.log(this._data)
     let url: any = this._createEndpointUrl();
-    let response = await fetch(url, {
-      method: this._endpoint["method"],
-      headers: this._HEADERS,
-      body: JSON.stringify(this._data),
-    })
-    const result = await response.json()
 
-    console.log(result)
+    let response = await fetch(url, this._payload)
+    const result = await response.json()
 
     if (response.ok) {
       return result;
