@@ -1,0 +1,14 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { Panel, PanelItem } from '.';
+
+<Meta title="Panel" component={Panel} />
+
+Panel
+
+<Story name="Panel">
+  <Panel title="Units">
+    <PanelItem id="1" title="Hello World" isCompleted={true} />
+    <PanelItem id="1" title="World" isCompleted={true} />
+    <PanelItem id="1" title="Hello" isCompleted={false} />
+  </Panel>
+</Story>
