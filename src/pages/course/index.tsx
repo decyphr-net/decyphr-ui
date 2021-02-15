@@ -27,7 +27,8 @@ const Course: React.FC = () => {
         <CourseCard title="English for Portuguese speakers" description="Check out your course list" imgSrc="https://via.placeholder.com/150">
           <Button as="a" text="Continue" color="primary" className="is-pulled-right mr-3 ml-3" />
           <Button as="a" text="Options" color="secondary" className="button is-pulled-right mr-3 ml-6" />
-        </CourseCard>      </div>
+        </CourseCard>
+      </div>
       <div className="column is-2 is-block">
         <h2 className="has-text-left ml-4 mt-5 is-size-3 has-text-weight-light">More courses</h2>
         <Link href="/course/1">
