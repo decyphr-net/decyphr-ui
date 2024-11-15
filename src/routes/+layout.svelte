@@ -4,6 +4,8 @@
 	import Navigation from '@/components/navigation/navigation.svelte';
 </script>
 
-<ModeWatcher />
-<Navigation />
-<slot></slot>
+<div class="flex min-h-screen w-full flex-col">
+	<ModeWatcher />
+	<Navigation />
+	<slot></slot>
+</div>
