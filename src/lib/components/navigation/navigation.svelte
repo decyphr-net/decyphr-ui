@@ -25,8 +25,8 @@
     <a href="/text-processing" class="text-muted-foreground hover:text-foreground transition-colors">
       Dashboard
     </a>
-    <a href="/settings" class="text-foreground hover:text-foreground transition-colors">
-      Settings
+    <a href="/preferences" class="text-foreground hover:text-foreground transition-colors">
+      Preferences
     </a>
   </nav>
   <Sheet.Root>
