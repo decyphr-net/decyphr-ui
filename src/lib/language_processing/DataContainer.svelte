@@ -6,7 +6,10 @@
     $message = [...$message, value]
   }
 
-  const ws = new WebSocket("ws://localhost:8001/api/nlp/notifier/nlp/14807eb6-ad8c-4e75-a1e5-5d436d30da68")
+  // Temporarily hard-code identifier
+  let clientId = "14807eb6-ad8c-4e75-a1e5-5d436d30da68";
+
+  const ws = new WebSocket(`ws://localhost:8001/api/nlp/notifier/nlp/${clientId}`)
 
   ws.addEventListener("message", (message: any) => {
     const reader = new FileReader()

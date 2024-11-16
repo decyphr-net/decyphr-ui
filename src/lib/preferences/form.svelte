@@ -1,7 +1,6 @@
 <script lang="ts">
   import * as Form from "$lib/components/ui/form";
 	import * as Select from "@/components/ui/select";
-  import { Textarea } from "$lib/components/ui/textarea";
   import { formSchema, type FormSchema } from "./schema";
   import {
     type SuperValidated,
@@ -17,7 +16,7 @@
     validators: zodClient(formSchema),
     onUpdated: ({ form: f }) => {
       if (f.valid) {
-        toast.success("Form submitted successfully!");
+        toast.success("Form successfully submitted!");
       } else {
         toast.error("Please fix the errors in the form.");
       }
@@ -29,48 +28,61 @@
   // Temporarily hard-code identifier
   let clientId = "14807eb6-ad8c-4e75-a1e5-5d436d30da68";
 
-  $: selectedNlpLanguage = $formData.language
-    ? {
-      label: $formData.language,
-      value: $formData.language
-    }
-    : undefined;
-
-  $: selectedNlpProcessor = $formData.processor
-    ? {
-      label: $formData.processor,
-      value: $formData.processor
-    }
-    : undefined;
+  $: selectedToLanguage = ""
+  $: selectedFromLanguage = ""
+  $: selectedPosTagger = ""
 
 </script>
 
 <form method="POST" use:enhance class="m-auto w-3/4">
-  <Form.Field {form} name="language" class="mt-3">
+  <Form.Field {form} name="from_language" class="mt-3">
     <Form.Control let:attrs>
-      <Form.Label>Language</Form.Label>
+      <Form.Label>From Language</Form.Label>
       <Select.Root
-        selected={selectedNlpLanguage}
+        selected={selectedFromLanguage}
         onSelectedChange={(v) => {
-          v && ($formData.language = v.value)
+          v && ($formData.from_language = v.value)
+          selectedFromLanguage = v?.label
         }}>
         <Select.Trigger {...attrs}>
-          <Select.Value placeholder="Select the language of the text" />
+          <Select.Value placeholder="Select your primary language" />
         </Select.Trigger>
         <Select.Content>
           <Select.Item value="en" label="English">English</Select.Item>
         </Select.Content>
       </Select.Root>
-      <input hidden bind:value={$formData.language} name={attrs.name} />
+      <input hidden bind:value={$formData.from_language} name={attrs.name} />
     </Form.Control>
   </Form.Field>
-  <Form.Field {form} name="processor" class="mt-3">
+
+  <Form.Field {form} name="to_language" class="mt-3">
     <Form.Control let:attrs>
-      <Form.Label>Text Processing Provider</Form.Label>
+      <Form.Label>To Language</Form.Label>
       <Select.Root
-        selected={selectedNlpProcessor}
+        selected={selectedToLanguage}
         onSelectedChange={(v) => {
-          v && ($formData.processor = v.value)
+          v && ($formData.to_language = v.value)
+          selectedToLanguage = v?.label
+        }}>
+        <Select.Trigger {...attrs}>
+          <Select.Value placeholder="Select the language that you want to translate text to" />
+        </Select.Trigger>
+        <Select.Content>
+          <Select.Item value="en" label="English">English</Select.Item>
+        </Select.Content>
+      </Select.Root>
+      <input hidden bind:value={$formData.to_language} name={attrs.name} />
+    </Form.Control>
+  </Form.Field>
+
+  <Form.Field {form} name="part_of_speech_tagger" class="mt-3">
+    <Form.Control let:attrs>
+      <Form.Label>Part of Speech Tagger</Form.Label>
+      <Select.Root
+        selected={selectedPosTagger}
+        onSelectedChange={(v) => {
+          v && ($formData.part_of_speech_tagger = v.value)
+          selectedPosTagger = v?.label
         }}>
         <Select.Trigger {...attrs}>
           <Select.Value placeholder="Select the processor to use" />
@@ -79,20 +91,10 @@
           <Select.Item value="aws" label="AWS Comprehend">AWS Comprehend</Select.Item>
         </Select.Content>
       </Select.Root>
-      <input hidden bind:value={$formData.processor} name={attrs.name} />
+      <input hidden bind:value={$formData.part_of_speech_tagger} name={attrs.name} />
     </Form.Control>
   </Form.Field>
-  <Form.Field {form} name="text" class="mt-3">
-    <Form.Control let:attrs>
-      <Form.Label>Text</Form.Label>
-      <Textarea
-        {...attrs}
-        placeholder="Text that you want to process"
-        class="resize-none"
-        bind:value={$formData.text}
-      />
-    </Form.Control>
-  </Form.Field>
+
   <Form.Field {form} name="client_id" class="mt-3">
     <Form.Control let:attrs>
       <input hidden bind:value={clientId} name={attrs.name} />
@@ -103,4 +105,3 @@
 </form>
 
 <Toaster />
-
