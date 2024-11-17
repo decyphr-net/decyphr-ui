@@ -10,8 +10,12 @@
   } from "sveltekit-superforms";
   import { zodClient } from "sveltekit-superforms/adapters";
   import { Toaster, toast } from "svelte-sonner";
+  import { preferences } from "@/preferences/stores";
+	import { get } from "svelte/store";
 
   export let data: SuperValidated<Infer<FormSchema>>;
+
+  let localPreferences = get(preferences);
 
   const form = superForm(data, {
     validators: zodClient(formSchema),
@@ -61,7 +65,7 @@
           <Select.Item value="en" label="English">English</Select.Item>
         </Select.Content>
       </Select.Root>
-      <input hidden bind:value={$formData.language} name={attrs.name} />
+      <input hidden bind:value={localPreferences.to_language} name={attrs.name} />
     </Form.Control>
   </Form.Field>
   <Form.Field {form} name="processor" class="mt-3">
@@ -79,7 +83,7 @@
           <Select.Item value="aws" label="AWS Comprehend">AWS Comprehend</Select.Item>
         </Select.Content>
       </Select.Root>
-      <input hidden bind:value={$formData.processor} name={attrs.name} />
+      <input hidden bind:value={localPreferences.part_of_speech_tagger} name={attrs.name} />
     </Form.Control>
   </Form.Field>
   <Form.Field {form} name="text" class="mt-3">

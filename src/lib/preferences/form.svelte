@@ -10,7 +10,6 @@
   import { zodClient } from "sveltekit-superforms/adapters";
   import { Toaster, toast } from "svelte-sonner";
   import { preferences } from "./stores";
-	import { get } from "svelte/store";
 
   export let data: SuperValidated<Infer<FormSchema>>;
 
