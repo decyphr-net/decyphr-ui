@@ -17,6 +17,14 @@ export const actions: Actions = {
       return fail(400, {form,});
     }
 
+    await fetch("http://localhost:8002/api/preferences/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form.data)
+    })
+
     return { form };
   },
 };

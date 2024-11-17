@@ -1,3 +1,3 @@
-import { writable } from "svelte/store";
+import { persisted } from 'svelte-persisted-store'
 
-export let preferences = writable([]);
+export const preferences = persisted('preferences', {})

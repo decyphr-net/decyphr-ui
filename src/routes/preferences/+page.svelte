@@ -1,7 +1,8 @@
 <script lang="ts">
+  import type { PageData } from "./$types";
   import * as Card from "$lib/components/ui/card/index.js";
   import PreferencesForm from "$lib/preferences/form.svelte";
-  import type { PageData } from "./$types";
+
   export let data: PageData;
 </script>
 
