@@ -9,6 +9,8 @@
   } from "sveltekit-superforms";
   import { zodClient } from "sveltekit-superforms/adapters";
   import { Toaster, toast } from "svelte-sonner";
+  import { preferences } from "./stores";
+	import { get } from "svelte/store";
 
   export let data: SuperValidated<Infer<FormSchema>>;
 
@@ -17,6 +19,7 @@
     onUpdated: ({ form: f }) => {
       if (f.valid) {
         toast.success("Form successfully submitted!");
+        preferences.set(f.data)
       } else {
         toast.error("Please fix the errors in the form.");
       }
