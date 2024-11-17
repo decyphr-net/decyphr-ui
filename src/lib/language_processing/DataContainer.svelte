@@ -20,34 +20,34 @@
 
     reader.readAsText(message.data)
   })
-
-  $: console.log($message);
 </script>
 
-<Table.Root class="mx-auto mt-8 w-3/4">
-  <Table.Caption>A list of your recently processed text.</Table.Caption>
-  <Table.Header>
-    <Table.Row>
-      <Table.Head class="w-[100px]">ID</Table.Head>
-      <Table.Head>Processor</Table.Head>
-      <Table.Head>Language Code</Table.Head>
-      <Table.Head class="text-right">Text</Table.Head>
-    </Table.Row>
-  </Table.Header>
-  <Table.Body>
-    {#each $message as item, i (i)}
-      {#if item.message_type == "REQUEST_PROCESSED"}
-        <Table.Row>
-          <Table.Cell class="font-medium">{item.syntax_tokens.id}</Table.Cell>
-          <Table.Cell>{item.syntax_tokens.process_request.processor}</Table.Cell>
-          <Table.Cell>{item.syntax_tokens.process_request.language_code}</Table.Cell>
-          <Table.Cell class="text-right">
-            {#each item.syntax_tokens.tokens as token}
-              <span class="{token.tag}">{token.word}</span>
-            {/each}
-          </Table.Cell>
-        </Table.Row>
-      {/if}
-    {/each}
-  </Table.Body>
-</Table.Root>
+<div class="grid gap-6">
+  <Table.Root class="mx-auto mt-8 w-3/4">
+    <Table.Caption>A list of your recently processed text.</Table.Caption>
+    <Table.Header>
+      <Table.Row>
+        <Table.Head class="w-[100px]">ID</Table.Head>
+        <Table.Head>Processor</Table.Head>
+        <Table.Head>Language Code</Table.Head>
+        <Table.Head class="text-right">Text</Table.Head>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
+      {#each $message as item, i (i)}
+        {#if item.message_type == "REQUEST_PROCESSED"}
+          <Table.Row>
+            <Table.Cell class="font-medium">{item.syntax_tokens.id}</Table.Cell>
+            <Table.Cell>{item.syntax_tokens.process_request.processor}</Table.Cell>
+            <Table.Cell>{item.syntax_tokens.process_request.language_code}</Table.Cell>
+            <Table.Cell class="text-right">
+              {#each item.syntax_tokens.tokens as token}
+                <span class="{token.tag}">{token.word}</span>
+              {/each}
+            </Table.Cell>
+          </Table.Row>
+        {/if}
+      {/each}
+    </Table.Body>
+  </Table.Root>
+</div>
