@@ -52,40 +52,16 @@
 <form method="POST" use:enhance class="m-auto w-3/4">
   <Form.Field {form} name="language" class="mt-3">
     <Form.Control let:attrs>
-      <Form.Label>Language</Form.Label>
-      <Select.Root
-        selected={selectedNlpLanguage}
-        onSelectedChange={(v) => {
-          v && ($formData.language = v.value)
-        }}>
-        <Select.Trigger {...attrs}>
-          <Select.Value placeholder="Select the language of the text" />
-        </Select.Trigger>
-        <Select.Content>
-          <Select.Item value="en" label="English">English</Select.Item>
-        </Select.Content>
-      </Select.Root>
       <input hidden bind:value={localPreferences.to_language} name={attrs.name} />
     </Form.Control>
   </Form.Field>
+
   <Form.Field {form} name="processor" class="mt-3">
     <Form.Control let:attrs>
-      <Form.Label>Text Processing Provider</Form.Label>
-      <Select.Root
-        selected={selectedNlpProcessor}
-        onSelectedChange={(v) => {
-          v && ($formData.processor = v.value)
-        }}>
-        <Select.Trigger {...attrs}>
-          <Select.Value placeholder="Select the processor to use" />
-        </Select.Trigger>
-        <Select.Content>
-          <Select.Item value="aws" label="AWS Comprehend">AWS Comprehend</Select.Item>
-        </Select.Content>
-      </Select.Root>
       <input hidden bind:value={localPreferences.part_of_speech_tagger} name={attrs.name} />
     </Form.Control>
   </Form.Field>
+
   <Form.Field {form} name="text" class="mt-3">
     <Form.Control let:attrs>
       <Form.Label>Text</Form.Label>
@@ -97,6 +73,7 @@
       />
     </Form.Control>
   </Form.Field>
+
   <Form.Field {form} name="client_id" class="mt-3">
     <Form.Control let:attrs>
       <input hidden bind:value={clientId} name={attrs.name} />
