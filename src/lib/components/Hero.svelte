@@ -33,7 +33,7 @@
 		</p>
 
 		<div class="space-y-4 md:space-x-4 md:space-y-0">
-			<Button class="w-full md:w-1/3">Get Started</Button>
+			<Button href="/dashboard/text-processing" class="w-full md:w-1/3">Get Started</Button>
 
 			<Button
 				variant="outline"

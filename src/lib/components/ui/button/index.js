@@ -12,6 +12,19 @@ const buttonVariants = tv({
 			secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-sm",
 			ghost: "hover:bg-accent hover:text-accent-foreground",
 			link: "text-primary underline-offset-4 hover:underline",
+			verb: "bg-slate-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+			noun: "bg-orange-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+			adj: "bg-amber-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+			punct: "bg-yellow-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+			det: "bg-lime-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+			pron: "bg-green-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+			part: "bg-blue-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+			adv: "bg-emerald-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+			cconj: "bg-teal-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+			aux: "bg-cyan-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+			intj: "bg-neutral-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+			propn: "bg-sky-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+			adp: "bg-indigo-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
 		},
 		size: {
 			default: "h-9 px-4 py-2",
@@ -26,8 +39,7 @@ const buttonVariants = tv({
 	},
 });
 export {
-	Root,
 	//
-	Root as Button,
-	buttonVariants,
+	Root as Button, Root, buttonVariants
 };
+
