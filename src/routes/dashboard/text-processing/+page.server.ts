@@ -17,8 +17,6 @@ export const actions: Actions = {
       return fail(400, {form,});
     }
 
-    console.log(JSON.stringify(form.data))
-
     await fetch("http://localhost:8000/api/processor/process", {
       method: "POST",
       headers: {
