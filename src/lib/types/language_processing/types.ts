@@ -29,11 +29,9 @@ interface ProcessRequest {
   client_id: string
 }
 
-interface ProcessRequestToken {
-  id: number
-  process_requests: ProcessRequest[]
-  tokens: Token[]
-  analysis: Analysis
+export interface SocketUpdateMessage {
+  message_type: MessageType
+  process_request_tokens: ProcessedMessage
 }
 
 export interface Token {
@@ -56,10 +54,20 @@ interface Analysis {
 }
 
 export interface ProcessedMessage {
-  message_type: MessageType
-  process_request_tokens: ProcessRequestToken
+  id: number,
+  procesRequest: ProcessRequest
+  tokens: Token[]
+  analysis: Analysis
+  request_uuid: string
 }
 
 export interface ReceivedMessage {
   message_type: MessageType
+}
+
+export interface Request {
+  received: boolean
+  processed: boolean
+  message: ProcessedMessage | null
+  requestUuid: string;
 }
