@@ -1,8 +1,8 @@
-import type { PageServerLoad, Actions } from "./$types.js";
+import { formSchema } from "$lib/nlp/schema";
 import { fail } from "@sveltejs/kit";
 import { superValidate } from "sveltekit-superforms";
 import { zod } from "sveltekit-superforms/adapters";
-import { formSchema } from "$lib/nlp/schema";
+import type { Actions, PageServerLoad } from "./$types.js";
 
 export const load: PageServerLoad = async () => {
   return {
@@ -17,7 +17,7 @@ export const actions: Actions = {
       return fail(400, {form,});
     }
 
-    await fetch("http://localhost:8000/api/pos/tagging", {
+    await fetch("http://localhost:8000/api/processor/process", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
