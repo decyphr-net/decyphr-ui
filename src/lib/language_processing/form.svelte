@@ -10,12 +10,12 @@
   } from "sveltekit-superforms";
   import { zodClient } from "sveltekit-superforms/adapters";
   import { Toaster, toast } from "svelte-sonner";
-  import { preferences } from "@/preferences/stores";
-	import { get } from "svelte/store";
+  import { get } from "svelte/store";
+  import { clientInfoStore } from "../../routes/dashboard/store";
+
+  let clientInfo = get(clientInfoStore);
 
   export let data: SuperValidated<Infer<FormSchema>>;
-
-  let localPreferences = get(preferences);
 
   const form = superForm(data, {
     validators: zodClient(formSchema),
@@ -29,9 +29,6 @@
   });
 
   const { form: formData, enhance } = form;
-
-  // Temporarily hard-code identifier
-  let clientId = "14807eb6-ad8c-4e75-a1e5-5d436d30da68";
 
   $: selectedNlpLanguage = $formData.language
     ? {
@@ -113,7 +110,7 @@
 
       <Form.Field {form} name="client_id">
         <Form.Control let:attrs>
-          <input hidden bind:value={clientId} name={attrs.name} />
+          <input hidden bind:value={clientInfo.clientId} name={attrs.name} />
         </Form.Control>
       </Form.Field>
     </div>

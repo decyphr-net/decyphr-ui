@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import * as Card from "$lib/components/ui/card/index.js";
-  import TextProcessingForm from "$lib/nlp/form.svelte";
+  import TextProcessingForm from "@/language_processing/form.svelte";
 	import DataContainer from "./DataContainer.svelte";
 
   export let data: PageData;

@@ -14,6 +14,17 @@
   import { Label } from "$lib/components/ui/label/index.js";
   import * as Select from "$lib/components/ui/select/index.js";
   import { Textarea } from "$lib/components/ui/textarea/index.js";
+  import { v4 as uuidv4 } from 'uuid'
+  import { clientInfoStore } from "./store";
+  import { get } from "svelte/store";
+
+  let clientInfo = get(clientInfoStore);
+
+  if (clientInfo?.clientId === undefined) {
+    clientInfoStore.set({'clientId': uuidv4()})
+  }
+
+
 </script>
 
 <div class="grid h-screen w-full pl-[53px]">

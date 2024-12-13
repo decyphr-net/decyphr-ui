@@ -1,4 +1,4 @@
-import { formSchema } from "$lib/nlp/schema";
+import { formSchema } from "@/language_processing/schema.js";
 import { fail } from "@sveltejs/kit";
 import { superValidate } from "sveltekit-superforms";
 import { zod } from "sveltekit-superforms/adapters";
