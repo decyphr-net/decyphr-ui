@@ -1,15 +1,16 @@
 <script lang="ts">
-  import { setMode, resetMode } from 'mode-watcher';
+  import { Button } from "$lib/components/ui/button";
   import {
-    Root,
-    Trigger,
-    Content,
-    Item } from "$lib/components/ui/dropdown-menu"
-  import { Button } from "$lib/components/ui/button"
-  import { Sun, Moon } from "lucide-svelte"
+  	Content,
+  	Item,
+  	Root,
+  	Trigger
+  } from "$lib/components/ui/dropdown-menu";
+  import { Moon, Sun } from "lucide-svelte";
   import CircleUser from "lucide-svelte/icons/circle-user";
   import Menu from "lucide-svelte/icons/menu";
   import Package2 from "lucide-svelte/icons/package-2";
+  import { resetMode, setMode } from 'mode-watcher';
 
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import * as Sheet from "$lib/components/ui/sheet/index.js";
@@ -22,10 +23,10 @@
     <a href="/" class="flex items-center gap-2 text-lg font-semibold md:text-base">
       Decyphr
     </a>
-    <a href="/text-processing" class="text-muted-foreground hover:text-foreground transition-colors">
+    <a href="/dashboard/text-processing" class="text-muted-foreground hover:text-foreground transition-colors">
       Dashboard
     </a>
-    <a href="/preferences" class="text-foreground hover:text-foreground transition-colors">
+    <a href="/dashboard/preferences" class="text-foreground hover:text-foreground transition-colors">
       Preferences
     </a>
   </nav>
