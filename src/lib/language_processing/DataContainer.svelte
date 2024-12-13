@@ -3,18 +3,19 @@
   import { Button } from "$lib/components/ui/button/index.js";
   import * as Popover from "$lib/components/ui/popover/index.js";
   import * as Card from "$lib/components/ui/card/index.js";
-  import { processTextMessagesStore } from "@/nlp/stores";
   import { onMount } from "svelte";
   import type { ProcessedMessage } from "./types"
   import CircleHelp from "lucide-svelte/icons/circle-help"
   import * as HoverCard from "$lib/components/ui/hover-card"
+  import { get } from "svelte/store";
+  import { processTextMessagesStore } from "@/language_processing/stores";
+  import { clientInfoStore } from "../../routes/dashboard/store";
 
   function updateStore(value: ProcessedMessage) {
     $processTextMessagesStore = [value, ...$processTextMessagesStore]
   }
 
-  // Temporarily hard-code identifier
-  let clientId = "14807eb6-ad8c-4e75-a1e5-5d436d30da68";
+  let clientInfo = get(clientInfoStore);
 
   const readerListener = (_: Event, reader: FileReader) => {
     let receivedMessage = JSON.parse(JSON.parse(reader.result as string))
@@ -30,7 +31,7 @@
   }
 
   onMount(async () => {
-      const ws = new WebSocket(`ws://localhost:8001/api/nlp/notifier/nlp/${clientId}`);
+      const ws = new WebSocket(`ws://localhost:8001/api/nlp/notifier/nlp/${clientInfo.clientId}`);
       const fileReader = new FileReader();
       ws.onmessage = (event: MessageEvent) => wsListener(event, fileReader);
     }
@@ -49,7 +50,7 @@
             variant="{item.process_request_tokens.analysis.mood}"
             class="text-md w-1/7 inline-block"
           >
-            <span> Mood: {item.process_request_tokens.analysis.mood }</span> 
+            <span> Mood: {item.process_request_tokens.analysis.mood}</span>
 
             <HoverCard.Root>
               <HoverCard.Trigger>
