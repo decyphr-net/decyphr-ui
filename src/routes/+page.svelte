@@ -1,11 +1,11 @@
 <script lang="ts">
   import { base } from '$app/paths';
-	import About from "@/components/About.svelte";
-	import Features from "@/components/Features.svelte";
-  import Hero from "@/components/Hero.svelte";
-	import HowItWorks from "@/components/HowItWorks.svelte";
-	import Services from "@/components/Services.svelte";
-	import Sponsors from "@/components/Sponsors.svelte";
+	import About from "@/components/landing/About.svelte";
+	import Features from "@/components/landing/Features.svelte";
+  import Hero from "@/components/landing/Hero.svelte";
+	import HowItWorks from "@/components/landing/HowItWorks.svelte";
+	import Services from "@/components/landing/Services.svelte";
+	import Sponsors from "@/components/landing/Sponsors.svelte";
 </script>
 
 <svelte:head>

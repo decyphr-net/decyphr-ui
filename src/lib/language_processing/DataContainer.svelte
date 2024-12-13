@@ -1,34 +1,12 @@
 <script lang="ts">
-  import { Badge } from "$lib/components/ui/badge/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  import * as Popover from "$lib/components/ui/popover/index.js";
-  import * as Card from "$lib/components/ui/card/index.js";
   import { onMount } from "svelte";
-  import type { ProcessedMessage } from "./types"
-  import CircleHelp from "lucide-svelte/icons/circle-help"
-  import * as HoverCard from "$lib/components/ui/hover-card"
+  import type { ProcessedMessage } from "@/types/language_processing/types";
   import { get } from "svelte/store";
   import { processTextMessagesStore } from "@/language_processing/stores";
   import { clientInfoStore } from "../../routes/dashboard/store";
+  import ProcessedTextCard from "@/components/language_processing/ProcessedTextCard.svelte";
 
-  function updateStore(value: ProcessedMessage) {
-    $processTextMessagesStore = [value, ...$processTextMessagesStore]
-  }
-
-  let clientInfo = get(clientInfoStore);
-
-  const readerListener = (_: Event, reader: FileReader) => {
-    let receivedMessage = JSON.parse(JSON.parse(reader.result as string))
-    if (receivedMessage.message_type == "REQUEST_RECEIVED") {
-      return;
-    }
-    updateStore(receivedMessage)
-  }
-
-  const wsListener = (event: MessageEvent, reader: FileReader) => {
-    reader.onload = (event: Event) => readerListener(event, reader);
-    reader.readAsText(event.data)
-  }
+  const clientInfo: ClientInfo = get(clientInfoStore);
 
   onMount(async () => {
       const ws = new WebSocket(`ws://localhost:8001/api/nlp/notifier/nlp/${clientInfo.clientId}`);
@@ -36,68 +14,27 @@
       ws.onmessage = (event: MessageEvent) => wsListener(event, fileReader);
     }
   )
+
+  function updateStore(value: ProcessedMessage) {
+    $processTextMessagesStore = [value, ...$processTextMessagesStore]
+  }
+
+  const readerListener = (_: Event, reader: FileReader) => {
+    let receivedMessage = JSON.parse(JSON.parse(reader.result as string))
+    if (receivedMessage.message_type == "REQUEST_RECEIVED") {
+      return;
+    }
+    updateStore(receivedMessage);
+  }
+
+  const wsListener = (event: MessageEvent, reader: FileReader) => {
+    reader.onload = (event: Event) => readerListener(event, reader);
+    reader.readAsText(event.data)
+  }
 </script>
 
 <div class="grid gap-6">
   {#each $processTextMessagesStore as item: ProcessedMessage}
-    <Card.Root>
-      <Card.Header>
-        <Card.Title class="mb-1 text-xl">
-          {item.process_request_tokens.analysis.text}
-        </Card.Title>
-        <Card.Description>
-          <Badge
-            variant="{item.process_request_tokens.analysis.mood}"
-            class="text-md w-1/7 inline-block"
-          >
-            <span> Mood: {item.process_request_tokens.analysis.mood}</span>
-
-            <HoverCard.Root>
-              <HoverCard.Trigger>
-                <CircleHelp size={18} class="inline-block" />
-              </HoverCard.Trigger>
-              <HoverCard.Content>
-                A piece of text can have 3 different moods. Positive, neutral, or negative
-              </HoverCard.Content>
-            </HoverCard.Root>
-          </Badge>
-          <Badge class="text-md w-1/7 inline-block">
-            <span>Bias: {item.process_request_tokens.analysis.bias}</span>
-
-            <HoverCard.Root>
-              <HoverCard.Trigger>
-                <CircleHelp size={18} class="inline-block" />
-              </HoverCard.Trigger>
-              <HoverCard.Content>
-                A piece of text can have 2 different biases. Subjective or objective
-              </HoverCard.Content>
-            </HoverCard.Root>
-          </Badge>
-        </Card.Description>
-      </Card.Header>
-      <Card.Content>
-        {#each item.process_request_tokens.tokens as token: Token}
-          <Popover.Root portal={null}>
-            <Popover.Trigger asChild let:builder>
-              <Button builders={[builder]} variant="{token.tag.toLowerCase()}" class="my-1">
-                {token.text}
-              </Button>
-            </Popover.Trigger>
-            <Popover.Content class="w-80">
-              <div class="flex justify-between space-x-4">
-                <div class="space-y-1">
-                  <h4 class="text-sm font-semibold">{token.text}</h4>
-                  <hr />
-                  <p class="text-sm">
-                    <span class="font-semibold">Type:&nbsp;</span>
-                    {token.display_name}
-                  </p>
-                </div>
-              </div>
-            </Popover.Content>
-          </Popover.Root>
-        {/each}
-      </Card.Content>
-    </Card.Root>
+    <ProcessedTextCard processedMessage={item} />
   {/each}
 </div>
