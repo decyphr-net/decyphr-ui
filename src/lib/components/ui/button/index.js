@@ -25,6 +25,8 @@ const buttonVariants = tv({
 			intj: "bg-neutral-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
 			propn: "bg-sky-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
 			adp: "bg-indigo-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+      num: "bg-violet-200 text-secondary-foreground hover:bg-secondary/80 shadow-sm",
+
 		},
 		size: {
 			default: "h-9 px-4 py-2",
