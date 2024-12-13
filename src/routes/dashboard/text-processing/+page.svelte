@@ -4,4 +4,4 @@
   import Playground from "@/language_processing/Playground.svelte";
 </script>
 
-<Playground data={data}></Playground>
+<Playground form={data.form}></Playground>

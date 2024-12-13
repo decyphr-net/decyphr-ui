@@ -1,0 +1,3 @@
+interface ClientInfo {
+  clientId: string
+}
