@@ -2,7 +2,6 @@
   import * as Form from "$lib/components/ui/form";
 	import * as Select from "@/components/ui/select";
   import { Textarea } from "$lib/components/ui/textarea";
-  import { formSchema, type FormSchema } from "./schema";
   import {
     type SuperValidated,
     type Infer,
@@ -11,20 +10,36 @@
   import { zodClient } from "sveltekit-superforms/adapters";
   import { Toaster, toast } from "svelte-sonner";
   import { get } from "svelte/store";
+  import { v4 as uuidv4 } from "uuid";
+  import { formSchema, type FormSchema } from "./schema";
   import { clientInfoStore } from "../../routes/dashboard/store";
-
-  let clientInfo = get(clientInfoStore);
+  import { processTextRequestsStore } from "@/language_processing/stores";
 
   export let data: SuperValidated<Infer<FormSchema>>;
+
+  const clientInfo = get(clientInfoStore);
+
+  $: requestUuid = uuidv4();
 
   const form = superForm(data, {
     validators: zodClient(formSchema),
     onUpdated: ({ form: f }) => {
       if (f.valid) {
         toast.success("Form submitted successfully!");
+        $processTextRequestsStore = [
+          {
+            requestUuid: requestUuid,
+            received: false,
+            processed: false,
+            message: null
+          },
+          ...$processTextRequestsStore
+        ]
       } else {
         toast.error("Please fix the errors in the form.");
       }
+
+      requestUuid = uuidv4();
     }
   });
 
@@ -111,6 +126,12 @@
       <Form.Field {form} name="client_id">
         <Form.Control let:attrs>
           <input hidden bind:value={clientInfo.clientId} name={attrs.name} />
+        </Form.Control>
+      </Form.Field>
+
+      <Form.Field {form} name="request_uuid">
+        <Form.Control let:attrs>
+          <input hidden bind:value={requestUuid} name={attrs.name} />
         </Form.Control>
       </Form.Field>
     </div>

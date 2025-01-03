@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { ProcessedMessage } from "@/types/language_processing/types";
+  import type { SocketUpdateMessage } from "@/types/language_processing/types";
   import { get } from "svelte/store";
-  import { processTextMessagesStore } from "@/language_processing/stores";
+  import { processTextRequestsStore } from "@/language_processing/stores";
   import { clientInfoStore } from "../../routes/dashboard/store";
   import ProcessedTextCard from "@/components/language_processing/ProcessedTextCard.svelte";
 
@@ -15,16 +15,20 @@
     }
   )
 
-  function updateStore(value: ProcessedMessage) {
-    $processTextMessagesStore = [value, ...$processTextMessagesStore]
-  }
-
   const readerListener = (_: Event, reader: FileReader) => {
-    let receivedMessage = JSON.parse(JSON.parse(reader.result as string))
-    if (receivedMessage.message_type == "REQUEST_RECEIVED") {
-      return;
-    }
-    updateStore(receivedMessage);
+    setTimeout(() => {
+      const message: SocketUpdateMessage = JSON.parse(JSON.parse(reader.result as string));
+      $processTextRequestsStore = $processTextRequestsStore.map(
+      obj => (
+        {
+          ...obj,
+          processed: message.message_type == "REQUEST_PROCESSED" ? true : obj.processed,
+          received: message.message_type == "REQUEST_RECEIVED" ? true : obj.received,
+          message: obj.message ? obj.message : message.process_request_tokens
+        }
+      )
+    )
+    }, 100);
   }
 
   const wsListener = (event: MessageEvent, reader: FileReader) => {
@@ -34,7 +38,11 @@
 </script>
 
 <div class="grid gap-6">
-  {#each $processTextMessagesStore as item: ProcessedMessage}
-    <ProcessedTextCard processedMessage={item} />
-  {/each}
+  {#if $processTextRequestsStore === undefined || $processTextRequestsStore === null || $processTextRequestsStore.length <= 0}
+    <p>You processed text will appear here!</p>
+  {:else}
+    {#each $processTextRequestsStore as item}
+      <ProcessedTextCard request={item} />
+    {/each}
+  {/if}
 </div>

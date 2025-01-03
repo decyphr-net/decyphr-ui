@@ -7,7 +7,8 @@ export const formSchema = z.object({
   text: z.string(
     { required_error: "Please provide the text that you want to process"}
   ).min(1, "Text must be at least 1 character"),
-  client_id: z.string()
+  client_id: z.string(),
+  request_uuid: z.string()
 })
 
 export type FormSchema = typeof formSchema

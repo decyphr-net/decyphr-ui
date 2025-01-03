@@ -1,5 +1,4 @@
-import { writable } from "svelte/store";
-import type { Writable } from "svelte/store";
-import type { ProcessedMessage } from "$lib/language_processing/types"
+import { writable, type Writable } from "svelte/store";
+import type { Request } from "$lib/types/language_processing/types"
 
-export let processTextMessagesStore:Writable<ProcessedMessage[]> = writable([]);
+export let processTextRequestsStore: Writable<Request[]> = writable([]);
