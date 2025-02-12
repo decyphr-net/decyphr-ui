@@ -1,8 +1,8 @@
 <script lang="ts">
-	import * as Avatar from '$lib/components/ui/avatar';
-	import { Badge } from '$lib/components/ui/badge';
-	import { Button } from '$lib/components/ui/button';
-	import * as Card from '$lib/components/ui/card';
+	import * as Avatar from '../ui/avatar';
+	import { Badge } from '../ui/badge';
+	import { Button } from '../ui/button';
+	import * as Card from '../ui/card';
 
 	import { Check, Linkedin, GithubIcon } from 'lucide-svelte';
 	// import LightBulbIcon from '$lib/components/icons/LightBulb.svelte';

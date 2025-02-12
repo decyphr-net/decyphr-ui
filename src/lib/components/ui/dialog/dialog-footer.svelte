@@ -4,6 +4,9 @@
 	export { className as class };
 </script>
 
-<div class={cn("flex items-center py-6 pt-0", className)} {...$$restProps}>
+<div
+	class={cn("flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2", className)}
+	{...$$restProps}
+>
 	<slot />
 </div>

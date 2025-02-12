@@ -2,7 +2,7 @@
 	import { GithubIcon } from 'lucide-svelte';
 
 	import HeroCards from './HeroCards.svelte';
-	import { Button } from './ui/button';
+	import { Button } from '../ui/button';
 </script>
 
 <section class="container grid place-items-center gap-10 py-20 md:py-32 lg:grid-cols-2">

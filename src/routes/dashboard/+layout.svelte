@@ -35,34 +35,38 @@
       </Button>
     </div>
     <nav class="grid gap-1 p-2">
-      <Tooltip.Root>
-        <Tooltip.Trigger asChild let:builder>
-          <Button
-            variant="ghost"
-            size="icon"
-            class="bg-muted rounded-lg"
-            aria-label="Playground"
-            builders={[builder]}
-          >
-            <SquareTerminal class="size-5" />
-          </Button>
-        </Tooltip.Trigger>
-        <Tooltip.Content side="right" sideOffset={5}>Playground</Tooltip.Content>
-      </Tooltip.Root>
-      <Tooltip.Root>
-        <Tooltip.Trigger asChild let:builder>
-          <Button
-            variant="ghost"
-            size="icon"
-            class="rounded-lg"
-            aria-label="Models"
-            builders={[builder]}
-          >
-            <Bot class="size-5" />
-          </Button>
-        </Tooltip.Trigger>
-        <Tooltip.Content side="right" sideOffset={5}>Models</Tooltip.Content>
-      </Tooltip.Root>
+      <a href="/dashboard/text-processing">
+        <Tooltip.Root>
+          <Tooltip.Trigger asChild let:builder>
+            <Button
+              variant="ghost"
+              size="icon"
+              class="bg-muted rounded-lg"
+              aria-label="Text Processing"
+              builders={[builder]}
+            >
+              <SquareTerminal class="size-5" />
+            </Button>
+          </Tooltip.Trigger>
+          <Tooltip.Content side="right" sideOffset={5}>Text Processing</Tooltip.Content>
+        </Tooltip.Root>
+      </a>
+      <a href="/dashboard/chat">
+        <Tooltip.Root>
+          <Tooltip.Trigger asChild let:builder>
+            <Button
+              variant="ghost"
+              size="icon"
+              class="rounded-lg"
+              aria-label="Chat"
+              builders={[builder]}
+            >
+              <Bot class="size-5" />
+            </Button>
+          </Tooltip.Trigger>
+          <Tooltip.Content side="right" sideOffset={5}>Chat</Tooltip.Content>
+        </Tooltip.Root>
+      </a>
       <Tooltip.Root>
         <Tooltip.Trigger asChild let:builder>
           <Button
@@ -269,8 +273,6 @@
         Share
       </Button>
     </header>
-    <main class="grid flex-1 gap-4 overflow-auto p-4 md:grid-cols-2 lg:grid-cols-3">
-      <slot></slot>
-    </main>
+    <slot></slot>
   </div>
 </div>
